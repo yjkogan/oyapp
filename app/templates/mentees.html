@@ -1,0 +1,32 @@
+{{> base/header.html}}
+<script src='/js/add_mentor.js'></script>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th> Message </th>
+      <th> Assign Mentor</th>
+    </tr>
+    <tbody>
+      {{# mentees}}
+      <tr>
+        <td>{{ reason }}</td>
+        <td>
+          {{^ mentor}}
+          <form>
+            <fieldset>
+              <input type="hidden" value={{id}} name="mentee_id" class="mentee_id">
+              <input type="text" placeholder="Phone number" name="phone" class="phone">
+              <button type="submit" class="btn" id="add-mentor-btn">Submit</button>
+            </fieldset>
+          </form>
+          {{/ mentor}}
+          {{# mentor}}
+            Already has a mentor
+          {{/ mentor}}
+        </td>
+      </tr>
+      {{/ mentees}}
+    </tbody>
+  </thead>
+</table>
+{{> base/footer.html}}
