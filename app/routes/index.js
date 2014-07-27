@@ -10,7 +10,17 @@ app.get('/', function(req, res, next) {
 });
 
 app.get('/send_oy', function(req, res, next) {
-  sendMessage(shira_number, 'Oy');
+  var token = req.query.token;
+  if (token != process.env.RANDOM_STRING) {
+    console.log('Failed Authentication');
+    return res.send('Failed Oy');
+  }
+  var to_oy = req.query.to_oy;
+  if (!to_oy) {
+    return res.send('Failed Oy');
+  }
+  sendMessage(to_oy, 'Oy');
+  return res.send('Oyed ' + to_oy);
 });
 
 function sendMessage(rec, body) {

@@ -22,4 +22,5 @@ if (process.env.NODE_ENV == 'development') {
   set('AUTH_TOKEN', creds['auth_token']);
   set('TWILIO_NUMBER', creds['twilio_number']);
   set('MY_NUMBER', creds['my_number']);
+  set('RANDOM_STRING', creds['random_string'])
 }
