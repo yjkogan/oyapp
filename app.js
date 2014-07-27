@@ -2,8 +2,8 @@ require('./config');
 
 var express = require('express')
   , hoganEngine = require('hogan-engine')
-  , app = express()
-  , db = require(APP_ROOT+'/config/db');
+  , app = express();
+//  , db = require(APP_ROOT+'/config/db');
 
 module.exports = app;
 
